@@ -10,7 +10,7 @@
         // Check if 'my' object exists (Hylid environment)
         if (typeof my !== "undefined") {
             my.getAuthCode({
-                scopes: ["auth_base", "USER_ID"],
+                scopes: ["auth_base"],
                 success: (res) => {
                     authCode = res.authCode;
                     statusMessage = "Auth code received. Verifying...";
