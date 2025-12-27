@@ -1,4 +1,5 @@
 <script>
+    export let onLoginSuccess;
     let authCode = "";
     let statusMessage = "";
     let isError = false;
@@ -31,6 +32,10 @@
                             my.alert({
                                 content: "Login successful",
                             });
+                            if (onLoginSuccess) {
+                                // Assuming response contains { token: "..." }
+                                onLoginSuccess(data.token);
+                            }
                         })
                         .catch((err) => {
                             isError = true;
