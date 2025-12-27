@@ -48,8 +48,10 @@
                 },
                 fail: (res) => {
                     isError = true;
-                    console.error(res.authErrorScopes);
-                    statusMessage = "Authorization failed.";
+                    // Log the full error to help debug
+                    console.error("Auth failed:", res);
+                    statusMessage =
+                        "Authorization failed: " + JSON.stringify(res, null, 2);
                 },
             });
         } else {
